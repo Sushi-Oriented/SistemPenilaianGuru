@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'login_screen.dart';
-import '../welcome/welcome_screen.dart';
 
 class LoginBody extends StatelessWidget {
   const LoginBody({state}) : _state = state;
@@ -28,7 +27,7 @@ class LoginBody extends StatelessWidget {
                   child: Form(
                     child: Column(
                       children: <Widget>[
-                        Text('Yolo'),
+                        Text(_state.username),
                         Container(),
                       ],
                     ),

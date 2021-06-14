@@ -3,6 +3,7 @@ import 'router.dart';
 
 void main() => runApp(
       MaterialApp(
+        
         debugShowCheckedModeBanner: false,
         title: 'SPG',
         theme: ThemeData(

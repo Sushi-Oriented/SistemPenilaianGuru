@@ -27,6 +27,9 @@ dependencies:
 
   flutter_signin_button: ^2.0.0 # Icon - Google sign in
   cupertino_icons: ^1.0.2
+  google_sign_in: ^4.5.9
+  firebase_auth: ^0.18.4+1
+  firebase_core: ^0.5.3
 
 dev_dependencies:
   flutter_test:

@@ -13,43 +13,27 @@ class LoginBody extends StatelessWidget {
       body: Container(
         child: Column(
           children: <Widget>[
-            SizedBox(height: 40.0),
+            SizedBox(height: 30.0),
+            Container(
+              child: Image(
+                  height: 300,
+                  image: AssetImage('assets/images/loginPic.png'),
+                  fit: BoxFit.contain),
+            ),
+            SizedBox(height: 20.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  child: Image(
-                      height: 250,
-                      image: AssetImage('assets/images/loginPic.png'),
-                      fit: BoxFit.contain),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ElevatedButton(
-                    onPressed: () => {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => WelcomeScreen()),
-                          )
-                        },
-                    child: Text(
-                      'Back',
-                      style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                  child: Form(
+                    child: Column(
+                      children: <Widget>[
+                        Text('Yolo'),
+                        Container(),
+                      ],
                     ),
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.only(left: 25.0, right: 25.0),
-                      primary: Colors.red,
-                      shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(10.0)),
-                    )),
+                  ),
+                )
               ],
             )
           ],

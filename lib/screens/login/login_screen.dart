@@ -12,8 +12,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
-  // final FirebaseAuth _auth = FirebaseAuth.instance;
-  // final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  //final FirebaseAuth _auth = FirebaseAuth.instance;
+  //final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   String _password = '';
   String _username = 'TATATAA';
@@ -36,7 +36,7 @@ class LoginScreenState extends State<LoginScreen> {
   // checkAuthentic() async {
   //   _auth.authStateChanges().listen((user) {
   //     if (user != null) {
-  //       print(user);
+  //       //print(user);
   //     }
   //   });
   // }

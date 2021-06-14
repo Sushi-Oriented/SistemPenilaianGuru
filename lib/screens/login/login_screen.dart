@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'login_body.dart';
+import 'login_body.dart';
 
 class LoginScreen extends StatefulWidget {
   static Route route() =>
@@ -16,7 +16,7 @@ class LoginScreenState extends State<LoginScreen> {
       onWillPop: () => Future.value(false),
       child: SafeArea(
         child: Scaffold(
-          body: Center(child: CircularProgressIndicator()),
+          body: LoginBody(),
         ),
       ),
     );

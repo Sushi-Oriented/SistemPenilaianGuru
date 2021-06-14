@@ -20,7 +20,7 @@ class LoginBody extends StatelessWidget {
                 Container(
                   child: Image(
                       height: 250,
-                      image: AssetImage('assets/images/welcomePic.png'),
+                      image: AssetImage('assets/images/loginPic.png'),
                       fit: BoxFit.contain),
                 ),
               ],

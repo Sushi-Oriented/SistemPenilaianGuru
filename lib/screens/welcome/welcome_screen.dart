@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart'; //Button API
 import 'package:spg_test/screens/login/login_screen.dart';
+import 'package:spg_test/screens/signup/signup_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static Route route() =>
@@ -75,7 +76,13 @@ class WelcomeScreenState extends State<WelcomeScreen> {
                     )),
                 SizedBox(width: 15.0),
                 ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignUpScreen()),
+                          )
+                        },
                     child: Text(
                       'Register',
                       style: TextStyle(

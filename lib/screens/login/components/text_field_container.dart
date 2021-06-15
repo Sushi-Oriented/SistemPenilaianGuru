@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../constant.dart';
+import '../../../constant.dart';
 
 class TexFieldContainer extends StatelessWidget {
   final Widget child;
@@ -16,7 +16,7 @@ class TexFieldContainer extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
       width: size.width * 0.8,
       decoration: BoxDecoration(
-        color: spgPrimaryColor,
+        color: spgSecondaryColor,
         borderRadius: BorderRadius.circular(29),
       ),
       child: child,

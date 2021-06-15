@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:spg_test/components/text_field_container.dart';
-import 'package:spg_test/components/rounded_input_field.dart';
+import 'package:spg_test/constant.dart';
+import 'package:spg_test/screens/login/components/rounded_input_field.dart';
+import 'package:spg_test/screens/login/components/rounded_password_field.dart';
+import 'package:spg_test/screens/welcome/welcome_screen.dart';
 import 'login_screen.dart';
-import '../../constant.dart';
 
 class LoginBody extends StatelessWidget {
   const LoginBody({state}) : _state = state;
@@ -11,6 +12,7 @@ class LoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Center(
       child: Container(
         child: Column(
@@ -22,24 +24,41 @@ class LoginBody extends StatelessWidget {
               ),
               Container(
                 child: Image(
-                    height: 250,
+                    height: 280,
                     image: AssetImage('assets/images/loginPic.png'),
                     fit: BoxFit.contain),
               ),
               RoundedInputField(
-                hinText: "Insert your username",
+                // Import from rounded_input_field.dart
+                hintText: "Insert your username",
                 onChanged: (value) => _state.username = value,
               ),
-              TexFieldContainer(
-                child: TextField(
-                  obscureText: !_state.showPassword,
-                  onChanged: (value) => _state.password = value,
-                  decoration: InputDecoration(
-                      hintText: "Insert your password",
-                      icon: Icon(Icons.lock),
-                      border: InputBorder.none,
-                      suffixIcon: Icon(
-                        Icons.visibility,
+              RoundedPasswordField(
+                // Import from rounded_passsword_field.dart
+                state: _state,
+              ),
+              Container(
+                width: size.width * 0.5,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(29),
+                  child: ElevatedButton(
+                      onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => WelcomeScreen()),
+                          ),
+                      child: Text(
+                        'Log in',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                        primary: spgPrimaryColor,
                       )),
                 ),
               )
@@ -47,4 +66,4 @@ class LoginBody extends StatelessWidget {
       ),
     );
   }
-}
+} //14:09

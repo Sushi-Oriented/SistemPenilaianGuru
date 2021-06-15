@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:spg_test/constant.dart';
-import 'package:spg_test/screens/login/components/rounded_button.dart';
-import 'package:spg_test/screens/login/components/rounded_input_field.dart';
-import 'package:spg_test/screens/login/components/rounded_password_field.dart';
+
+import 'package:spg_test/components/rounded_button.dart';
+import 'package:spg_test/components/rounded_input_field.dart';
+import 'package:spg_test/components/rounded_password_field.dart';
 import 'package:spg_test/screens/welcome/welcome_screen.dart';
+import 'package:spg_test/constant.dart';
+
 import 'login_screen.dart';
 
 class LoginBody extends StatelessWidget {

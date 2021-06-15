@@ -11,7 +11,7 @@ class LoginScreen extends StatefulWidget {
 
 class LoginScreenState extends State<LoginScreen> {
   String _password = '';
-  String _username = 'TATATAA';
+  String _username = 'Login';
   String _errors = '';
   bool _showPassword = false;
 

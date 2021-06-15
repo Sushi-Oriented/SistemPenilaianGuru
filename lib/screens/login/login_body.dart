@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:spg_test/components/text_field_container.dart';
+import 'package:spg_test/components/rounded_input_field.dart';
 import 'login_screen.dart';
+import '../../constant.dart';
 
 class LoginBody extends StatelessWidget {
   const LoginBody({state}) : _state = state;
@@ -8,43 +11,39 @@ class LoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          child: Column(
+    return Center(
+      child: Container(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SizedBox(height: 30.0),
+              Text(
+                _state.username,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               Container(
                 child: Image(
-                    height: 300,
+                    height: 250,
                     image: AssetImage('assets/images/loginPic.png'),
                     fit: BoxFit.contain),
               ),
-              SizedBox(height: 20.0),
-              Text(_state.username),
-              Container(
-                child: Form(
-                  //key: _state.formKey,
-                  child: Column(
-                    children: <Widget>[
-                      Container(
-                        child: TextFormField(validator: (input) {
-                          if (input.isEmpty) return 'Enter Username';
-                          decoration:
-                          InputDecoration(
-                              labelText: 'Username',
-                              prefixIcon: Icon(Icons.email));
-                          onSaved:
-                          (input) => _state.username = input;
-                        }),
-                      ),
-                    ],
-                  ),
-                ),
+              RoundedInputField(
+                hinText: "Insert your username",
+                onChanged: (value) => _state.username = value,
               ),
-            ],
-          ),
-        ),
+              TexFieldContainer(
+                child: TextField(
+                  obscureText: !_state.showPassword,
+                  onChanged: (value) => _state.password = value,
+                  decoration: InputDecoration(
+                      hintText: "Insert your password",
+                      icon: Icon(Icons.lock),
+                      border: InputBorder.none,
+                      suffixIcon: Icon(
+                        Icons.visibility,
+                      )),
+                ),
+              )
+            ]),
       ),
     );
   }

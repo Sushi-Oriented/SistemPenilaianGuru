@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+
+import 'package:spg_test/components/rounded_button.dart';
+import 'package:spg_test/components/rounded_input_field.dart';
+import 'package:spg_test/components/rounded_password_field.dart';
+import 'package:spg_test/screens/welcome/welcome_screen.dart';
+import 'package:spg_test/constant.dart';
+
 import 'login_screen.dart';
 
 class LoginBody extends StatelessWidget {
@@ -8,44 +15,45 @@ class LoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          child: Column(
+    return Center(
+      child: Container(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SizedBox(height: 30.0),
+              Text(
+                _state.username,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               Container(
                 child: Image(
-                    height: 300,
+                    height: 280,
                     image: AssetImage('assets/images/loginPic.png'),
                     fit: BoxFit.contain),
               ),
-              SizedBox(height: 20.0),
-              Text(_state.username),
-              Container(
-                child: Form(
-                  //key: _state.formKey,
-                  child: Column(
-                    children: <Widget>[
-                      Container(
-                        child: TextFormField(validator: (input) {
-                          if (input.isEmpty) return 'Enter Username';
-                          decoration:
-                          InputDecoration(
-                              labelText: 'Username',
-                              prefixIcon: Icon(Icons.email));
-                          onSaved:
-                          (input) => _state.username = input;
-                        }),
-                      ),
-                    ],
-                  ),
-                ),
+              RoundedInputField(
+                // Import from rounded_input_field.dart
+                hintText: "Username",
+                onChanged: (value) => _state.username = value,
               ),
-            ],
-          ),
-        ),
+              RoundedPasswordField(
+                // Import from rounded_passsword_field.dart
+                state: _state,
+              ),
+              RoundedLoginButton(
+                // Import from rounded_button.dart
+                color: spgPrimaryColor,
+                text: "Log In",
+                press: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => WelcomeScreen()),
+                  )
+                },
+              )
+            ]),
       ),
     );
   }
 }
+
+//14:09

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spg_test/components/background.dart';
 
 import 'package:spg_test/components/rounded_button.dart';
 import 'package:spg_test/components/rounded_input_field.dart';
@@ -15,8 +16,8 @@ class LoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
+    return Background(
+      child: SingleChildScrollView(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

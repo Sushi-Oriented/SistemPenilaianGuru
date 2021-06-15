@@ -100,11 +100,6 @@ class WelcomeScreenState extends State<WelcomeScreen> {
               ],
             ),
             SizedBox(height: 20.0),
-            SignInButton(
-              Buttons.GoogleDark,
-              text: "Sign up with Google",
-              onPressed: () {},
-            )
           ],
         ),
       ),

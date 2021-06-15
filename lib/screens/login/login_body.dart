@@ -37,7 +37,10 @@ class LoginBody extends StatelessWidget {
               ),
               RoundedPasswordField(
                 // Import from rounded_passsword_field.dart
-                state: _state,
+                hintText: "Username",
+                obscureText: !_state.showPassword,
+                onChanged: (value) => _state.password = value,
+                press: () => _state.showPassword = !_state.showPassword,
               ),
               RoundedLoginButton(
                 // Import from rounded_button.dart

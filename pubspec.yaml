@@ -51,6 +51,7 @@ flutter:
   assets:
     - assets/images/welcomePic.png
     - assets/images/loginPic.png
+    - assets/images/signUpPic.png
     - assets/images/shape1.png
     - assets/images/shape2.png
 

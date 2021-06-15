@@ -6,24 +6,26 @@ import 'package:spg_test/screens/login/login_screen.dart';
 import '../../../constant.dart';
 
 class RoundedPasswordField extends StatelessWidget {
+  final String hintText;
+  final Function press;
+  final bool obscureText;
   final ValueChanged<String> onChanged;
   const RoundedPasswordField({
     Key key,
+    this.hintText,
+    this.press,
+    this.obscureText,
     this.onChanged,
-    @required LoginScreenState state,
-  })  : _state = state,
-        super(key: key);
-
-  final LoginScreenState _state;
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TexFieldContainer(
       child: TextField(
-        obscureText: !_state.showPassword,
-        onChanged: (value) => _state.password = value,
+        obscureText: obscureText,
+        onChanged: onChanged,
         decoration: InputDecoration(
-            hintText: "Insert your password",
+            hintText: hintText,
             icon: Icon(
               Icons.lock,
               color: spgTierColor,
@@ -35,7 +37,7 @@ class RoundedPasswordField extends StatelessWidget {
                 Icons.visibility,
                 color: spgTierColor,
               ),
-              onPressed: () => _state.showPassword = !_state.showPassword,
+              onPressed: press,
             )),
       ),
     );

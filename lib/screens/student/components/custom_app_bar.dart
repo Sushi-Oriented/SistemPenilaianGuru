@@ -18,15 +18,15 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: spgPrimaryColor,
+        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         elevation: 0.0,
         title: Text(
           'SPG',
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 20,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         actions: <Widget>[
@@ -34,7 +34,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
             icon: icon,
             iconSize: 25.0,
             onPressed: pressed,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ],
       ),

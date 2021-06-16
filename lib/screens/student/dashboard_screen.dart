@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:spg_test/screens/student/components/custom_app_bar.dart';
+import 'package:spg_test/screens/welcome/welcome_screen.dart';
 import 'body.dart';
 
 class DashboardStudScreen extends StatefulWidget {
@@ -16,6 +18,16 @@ class DashboardStudState extends State<DashboardStudScreen> {
       onWillPop: () => Future.value(false),
       child: SafeArea(
         child: Scaffold(
+          appBar: CustomAppBar(
+            icon: Icon(Icons.logout_rounded),
+            pressed: () => {
+              // To be changed
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => WelcomeScreen()),
+              )
+            },
+          ),
           body: DashboardStudBody(),
         ),
       ),

@@ -6,13 +6,11 @@ import 'package:spg_test/constant.dart';
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   final Function pressed;
   final Icon icon;
-  final Text title;
 
   const CustomAppBar({
     Key key,
     this.icon,
     this.pressed,
-    this.title,
   }) : super(key: key);
 
   @override
@@ -20,15 +18,23 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: spgPrimaryColor,
         automaticallyImplyLeading: false,
         elevation: 0.0,
-        title: title,
+        title: Text(
+          'SPG',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+            color: Colors.white,
+          ),
+        ),
         actions: <Widget>[
           IconButton(
             icon: icon,
-            iconSize: 30.0,
+            iconSize: 25.0,
             onPressed: pressed,
+            color: Colors.white,
           ),
         ],
       ),

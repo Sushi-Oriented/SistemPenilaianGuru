@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'body.dart';
 
 class DashboardStudScreen extends StatefulWidget {
   static Route route() =>
@@ -15,7 +16,7 @@ class DashboardStudState extends State<DashboardStudScreen> {
       onWillPop: () => Future.value(false),
       child: SafeArea(
         child: Scaffold(
-          body: (),
+          body: DashboardStudBody(),
         ),
       ),
     );

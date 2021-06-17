@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart'; //Button API
+import 'package:spg_test/components/rounded_button.dart';
+
 import 'package:spg_test/screens/login/login_screen.dart';
 import 'package:spg_test/screens/signup/signup_screen.dart';
 
@@ -52,51 +53,33 @@ class WelcomeScreenState extends State<WelcomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                ElevatedButton(
-                    onPressed: () => {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LoginScreen()),
-                          )
-                        },
-                    child: Text(
-                      'Login',
-                      style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.only(left: 25.0, right: 25.0),
-                      primary: Colors.green,
-                      shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(10.0)),
-                    )),
                 SizedBox(width: 15.0),
-                ElevatedButton(
-                    onPressed: () => {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SignUpScreen()),
-                          )
-                        },
-                    child: Text(
-                      'Register',
-                      style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.only(left: 30.0, right: 30.0),
-                      primary: Colors.grey,
-                      shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(10.0)),
-                    )),
+                RoundedLoginButton(
+                  text: "Login",
+                  color: Colors.green,
+                  press: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()),
+                    )
+                  },
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(height: 60.0, width: 15.0),
+                RoundedLoginButton(
+                  text: "Sign Up",
+                  color: Colors.blueGrey,
+                  press: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUpScreen()),
+                    )
+                  },
+                ),
               ],
             ),
             SizedBox(height: 20.0),

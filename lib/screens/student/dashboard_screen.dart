@@ -18,16 +18,6 @@ class DashboardStudState extends State<DashboardStudScreen> {
       onWillPop: () => Future.value(false),
       child: SafeArea(
         child: Scaffold(
-          appBar: CustomAppBar(
-            icon: Icon(Icons.logout_rounded),
-            pressed: () => {
-              // To be changed
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => WelcomeScreen()),
-              )
-            },
-          ),
           body: DashboardStudBody(),
         ),
       ),

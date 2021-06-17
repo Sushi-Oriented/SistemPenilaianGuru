@@ -18,6 +18,16 @@ class DashboardStudBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomAppBar(
+        icon: Icon(Icons.logout_rounded),
+        pressed: () => {
+          // To be changed
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => WelcomeScreen()),
+          )
+        },
+      ),
       body: CustomScrollView(
         physics: ClampingScrollPhysics(),
         slivers: <Widget>[
@@ -29,13 +39,13 @@ class DashboardStudBody extends StatelessWidget {
                 padding: EdgeInsets.all(20.0),
                 decoration: BoxDecoration(
                   color: spgPrimaryColor,
-                  border: Border.all(color: Colors.white, width: 10),
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20.0),
-                    bottomRight: Radius.circular(20.0),
-                    topLeft: Radius.circular(20.0),
-                    topRight: Radius.circular(20.0),
-                  ),
+                  border: Border.all(color: Colors.transparent),
+                  // borderRadius: BorderRadius.only(
+                  //   bottomLeft: Radius.circular(20.0),
+                  //   bottomRight: Radius.circular(20.0),
+                  //   topLeft: Radius.circular(20.0),
+                  //   topRight: Radius.circular(20.0),
+                  // ),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

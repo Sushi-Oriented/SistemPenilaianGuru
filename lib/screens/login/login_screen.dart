@@ -22,6 +22,10 @@ class LoginScreenState extends State<LoginScreen> {
   get showPassword => _showPassword;
   set showPassword(value) => setState(() => _showPassword = value);
 
+  bool _isLoggedIn = false;
+  get isLoggedIn => _isLoggedIn;
+  set isLoggedIn(value) => setState(() => _isLoggedIn = value);
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(

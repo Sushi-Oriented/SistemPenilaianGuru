@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:spg_test/components/background.dart';
 import 'package:spg_test/constant.dart';
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
@@ -26,7 +25,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
           style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 20,
-            color: Colors.black,
+            color: spgPrimaryColor,
           ),
         ),
         actions: <Widget>[
@@ -34,7 +33,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
             icon: icon,
             iconSize: 25.0,
             onPressed: pressed,
-            color: Colors.black,
+            color: spgPrimaryColor,
           ),
         ],
       ),

@@ -4,9 +4,10 @@ import 'package:spg_test/components/user_info.dart';
 import 'package:spg_test/components/user_name.dart';
 
 import 'package:spg_test/constant.dart';
+import 'package:spg_test/provider/auth_provider.dart';
+import 'package:spg_test/screens/login/login_screen.dart';
 
 import 'package:spg_test/screens/student/components/custom_app_bar.dart';
-
 import 'package:spg_test/screens/student/dashboard_screen.dart';
 import 'package:spg_test/screens/welcome/welcome_screen.dart';
 
@@ -14,7 +15,7 @@ class DashboardStudBody extends StatelessWidget {
   const DashboardStudBody({state}) : _state = state;
 
   final DashboardStudState _state;
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,10 +23,11 @@ class DashboardStudBody extends StatelessWidget {
         icon: Icon(Icons.logout_rounded),
         pressed: () => {
           // To be changed
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => WelcomeScreen()),
-          )
+          AuthClass().signOut(),
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => LoginScreen()),
+              (route) => false)
         },
       ),
       body: CustomScrollView(
@@ -57,8 +59,8 @@ class DashboardStudBody extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         UserName(
-                          //text: _state.email,
-                          text: "Park Seo Joonoi", // Nama Pelajar - Mock Data
+                          text: _state.email,
+                          //text: "Park Seo Joonoi", // Nama Pelajar - Mock Data
                         ),
                       ],
                     ),

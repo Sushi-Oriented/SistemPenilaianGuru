@@ -10,22 +10,17 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
-  String _password = '';
-  String _username = 'Login';
-  String _errors = '';
-  bool _showPassword = false;
+  TextEditingController _email = TextEditingController();
+  get email => _email;
+  set email(value) => setState(() => _email = value);
 
+  TextEditingController _password = TextEditingController();
   get password => _password;
   set password(value) => setState(() => _password = value);
 
-  get username => _username;
-  set username(value) => setState(() => _username = value);
-
+  bool _showPassword = false;
   get showPassword => _showPassword;
   set showPassword(value) => setState(() => _showPassword = value);
-
-  get errors => _errors;
-  set errors(value) => setState(() => _errors = value);
 
   @override
   Widget build(BuildContext context) {

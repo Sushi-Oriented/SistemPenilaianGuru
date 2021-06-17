@@ -14,7 +14,7 @@ class DashboardStudBody extends StatelessWidget {
   const DashboardStudBody({state}) : _state = state;
 
   final DashboardStudState _state;
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,12 +40,6 @@ class DashboardStudBody extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: spgPrimaryColor,
                   border: Border.all(color: Colors.transparent),
-                  // borderRadius: BorderRadius.only(
-                  //   bottomLeft: Radius.circular(20.0),
-                  //   bottomRight: Radius.circular(20.0),
-                  //   topLeft: Radius.circular(20.0),
-                  //   topRight: Radius.circular(20.0),
-                  // ),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,6 +57,7 @@ class DashboardStudBody extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         UserName(
+                          //text: _state.email,
                           text: "Park Seo Joonoi", // Nama Pelajar - Mock Data
                         ),
                       ],

@@ -23,7 +23,7 @@ class LoginBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                _state.username,
+                "Login",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               Container(
@@ -34,14 +34,14 @@ class LoginBody extends StatelessWidget {
               ),
               RoundedInputField(
                 // Import from rounded_input_field.dart
-                hintText: "Username",
-                onChanged: (value) => _state.username = value,
+                hintText: "Email",
+                controller: _state.email,
               ),
               RoundedPasswordField(
                 // Import from rounded_passsword_field.dart
                 hintText: "Password",
                 obscureText: !_state.showPassword,
-                onChanged: (value) => _state.password = value,
+                controller: _state.password,
                 press: () => _state.showPassword = !_state.showPassword,
               ),
               RoundedLoginButton(

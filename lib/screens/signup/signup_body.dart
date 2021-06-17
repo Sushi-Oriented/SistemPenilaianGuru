@@ -25,7 +25,7 @@ class SignUpBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              _state.name,
+              "Sign Up",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             Container(
@@ -36,14 +36,21 @@ class SignUpBody extends StatelessWidget {
                 fit: BoxFit.contain,
               ),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text("sdas"),
+              ],
+            ),
             RoundedInputField(
-              hintText: "Username",
-              onChanged: (value) => _state.username = value,
+              hintText: "Email",
+              controller: _state.email,
+              //onChanged: (value) => _state.username = value,
             ),
             RoundedPasswordField(
               hintText: "Password",
               obscureText: !_state.showPassword,
-              onChanged: (value) => _state.password = value,
+              controller: _state.password,
               press: () => _state.showPassword = !_state.showPassword,
             ),
             RoundedLoginButton(

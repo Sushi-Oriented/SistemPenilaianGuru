@@ -20,7 +20,7 @@ class DashboardStudBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        icon: Icon(Icons.logout_rounded),
+        icon: Icon(Icons.login_outlined),
         pressed: () => {
           // To be changed
           AuthClass().signOut(),

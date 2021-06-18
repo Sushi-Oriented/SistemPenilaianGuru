@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:spg_test/components/text_field_container.dart';
 import 'package:spg_test/screens/login/login_screen.dart';
 
-import '../../../constant.dart';
+import '../constant.dart';
+
+
 
 class RoundedPasswordField extends StatelessWidget {
   final Function press;
@@ -16,7 +18,7 @@ class RoundedPasswordField extends StatelessWidget {
   const RoundedPasswordField({
     Key key,
     this.hintText,
-    this.icon = Icons.password,
+    this.icon = Icons.people,
     this.color = spgTierColor,
     this.press,
     this.obscureText,

@@ -11,10 +11,14 @@ class AuthClass {
       //print('Krystl');
       return "Created";
     } on FirebaseAuthException catch (e) {
+      //FirebaseAuthException e = (FirebaseAuthException )task.getException();
+      // return Toast.makeText(LoginActivity.this, "Failed Registration: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+      //message.hide();
+
       if (e.code == 'weak-password') {
-        return "The password provided is too weak.Like You! 누브!";
+        return "The password provided is too weak.Like You! 누브!" + e.message;
       } else if (e.code == 'email-already-in-use') {
-        return "User existed.";
+        return "User existed. " + e.message;
       }
     } catch (e) {
       print(e);

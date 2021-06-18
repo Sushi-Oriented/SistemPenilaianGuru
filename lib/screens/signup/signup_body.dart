@@ -94,7 +94,7 @@ class SignUpBody extends StatelessWidget {
                                 builder: (context) => LoginScreen()),
                           )
                         },
-                        child: Text("Already have an accout? Login 미친!"),
+                        child: Text("Already have an account? Login 미친!"),
                       )
                     ],
                   )

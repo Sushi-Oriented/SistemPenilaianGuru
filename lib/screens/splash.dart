@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:spg_test/constant.dart';
 import 'package:spg_test/screens/login/login_screen.dart';
-import 'package:spg_test/screens/signup/signup_screen.dart';
+//import 'package:spg_test/screens/signup/signup_screen.dart';
 import 'package:spg_test/screens/student/dashboard_screen.dart';
 
 class Splash extends StatefulWidget {

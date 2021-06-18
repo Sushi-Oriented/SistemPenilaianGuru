@@ -46,7 +46,7 @@ class SplashScreenState extends State<Splash> {
             SizedBox(height: 20.0),
             Container(
               child: CircularProgressIndicator(
-                backgroundColor: spgPrimaryColor,
+                color: spgPrimaryColor,
                 
               ),
             )

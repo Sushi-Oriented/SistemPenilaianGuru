@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:spg_test/components/user_image.dart';
-import 'package:spg_test/components/user_info.dart';
-import 'package:spg_test/components/user_name.dart';
+// import 'package:spg_test/components/user_image.dart';
+// import 'package:spg_test/components/user_info.dart';
+// import 'package:spg_test/components/user_name.dart';
 
-import 'package:spg_test/constant.dart';
+// import 'package:spg_test/constant.dart';
 import 'package:spg_test/provider/auth_provider.dart';
 import 'package:spg_test/screens/login/login_screen.dart';
 
 import 'package:spg_test/screens/student/components/custom_app_bar.dart';
 import 'package:spg_test/screens/student/dashboard_screen.dart';
-import 'package:spg_test/screens/welcome/welcome_screen.dart';
+// import 'package:spg_test/screens/welcome/welcome_screen.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DashboardStudBody extends StatelessWidget {
   const DashboardStudBody({state}) : _state = state;
@@ -30,46 +32,74 @@ class DashboardStudBody extends StatelessWidget {
               (route) => false)
         },
       ),
-      body: Container(
-      color: Color.fromRGBO(255, 255, 255, 100),
-      child: Column(
-        children: [
-          getDetails(),
-          Container(
-            padding: const EdgeInsets.all(20.0),
-            
+      body: StreamBuilder(
+        stream: FirebaseFirestore.instance.collection('subject').snapshots(),
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return Container(
+            color: Color.fromRGBO(255, 255, 255, 100),
             child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "Senarai Subjek Untuk Penilaian",
-                      style: const TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    )
-                  ],
+              children: [
+                getDetails(),
+                Container(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "Senarai Subjek Untuk Penilaian",
+                        style: const TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: ListView(
+                    children: snapshot.data.docs.map((document) {
+                      return Card(
+                        color: Color.fromRGBO(244, 244, 244, 10),
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            backgroundColor: Color.fromRGBO(196, 196, 196, 100),
+                            child: Text(document['abbr'],
+                                style: TextStyle(color: Colors.black
+                                    // fontSize: 20.0,
+                                    // fontWeight: FontWeight.bold,
+                                    )),
+                          ),
+                          title: Text(document['name'],
+                              style: TextStyle(
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                              )),
+                          subtitle: Text(document['teacher']),
+                        ),
+                      );
+                    }).toList(),
+                  ),
                 )
-          ),
-
-          Expanded(child: getList())
-          // getList(),
-        ],
+              ],
+            ),
+          );
+        },
       ),
-    ),
     );
   }
 
   Widget getDetails() {
     return Container(
       alignment: AlignmentDirectional.center,
-      
       child: Container(
-        
         padding: EdgeInsets.all(20.0),
         height: 200,
         width: 300,
-   
         decoration: BoxDecoration(
           color: Color.fromRGBO(244, 244, 244, 100),
           // border: Border.all(color: Colors.black, width: 3),
@@ -125,65 +155,4 @@ class DashboardStudBody extends StatelessWidget {
       ),
     );
   }
-
-  Widget getList() {
-    return ListView.separated(
-      shrinkWrap: true,
-      padding: const EdgeInsets.all(20),
-      itemCount: 10,
-      // itemBuilder: (context, index) => ListTile(
-      //   leading: CircleAvatar(
-      //     child: Text('BM'),
-      //   ),
-      //   title: Text('title'),
-      //   subtitle: Text('subtitle'),
-      // ),
-
-
-      itemBuilder: (context, index){
-        return Card(
-           color: Color.fromRGBO(244, 244, 244, 10),
-          child: ListTile(
-            
-            leading: CircleAvatar(
-              backgroundColor: Color.fromRGBO(196, 196, 196, 100),
-              child: Text('BM',
-              style: TextStyle(
-                color: Colors.black
-                      // fontSize: 20.0,
-                      // fontWeight: FontWeight.bold,
-                    )),
-              ),
-      
-          title: Text('Bahasa Melayu',
-          style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                    )),
-        subtitle: Text('En Faizul Bin Awang'),
-          ),
-        );
-      },
-
-
-      // itemBuilder: (context, index){
-       
-      //   Container(
-      //   height: 50,
-      //   color: Colors.amber[600],
-        
-      //    child: 
-      //    Text('masahun'),
-      //   );
-
-
-      // },
-     
-      // },
-      separatorBuilder: (BuildContext context, int index) => const Divider(),
-    );
-
-
-}
-
 }

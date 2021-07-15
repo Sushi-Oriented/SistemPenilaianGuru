@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:spg_test/screens/login/login_screen.dart';
 import 'package:spg_test/screens/principal/principal_screen.dart';
 import 'package:spg_test/screens/signup/signup_screen.dart';
-import 'package:spg_test/screens/student/dashboard_screen.dart';
+import 'package:spg_test/screens/student/DashBoard/dashboard_screen.dart';
 import 'package:spg_test/services/auth_provider.dart';
 
 class CheckTypeScreen extends StatelessWidget {

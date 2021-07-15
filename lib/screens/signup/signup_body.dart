@@ -1,17 +1,21 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:spg_test/components/background.dart';
-import 'package:spg_test/components/rounded_button.dart';
-import 'package:spg_test/components/rounded_input_field.dart';
-import 'package:spg_test/components/rounded_password_field.dart';
+import '../../constant.dart';
+
+// Widget
+import 'package:spg_test/widget/background.dart';
+import 'package:spg_test/widget/rounded_button.dart';
+import 'package:spg_test/widget/rounded_input_field.dart';
+import 'package:spg_test/widget/rounded_password_field.dart';
+import 'package:spg_test/widget/orDivider.dart';
+
+// Screens
 import 'package:spg_test/screens/login/login_screen.dart';
 import 'package:spg_test/screens/signup/signup_screen.dart';
+
+// Services
 import 'package:spg_test/services/auth_provider.dart';
 import 'package:spg_test/services/check/check_userType.dart';
-
-import '../../constant.dart';
-import 'components/orDivider.dart';
 
 class SignUpBody extends StatelessWidget {
   const SignUpBody({state}) : _state = state;

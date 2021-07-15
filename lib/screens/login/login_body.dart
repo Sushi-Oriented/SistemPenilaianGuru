@@ -4,14 +4,11 @@ import 'package:spg_test/components/background.dart';
 import 'package:spg_test/components/rounded_button.dart';
 import 'package:spg_test/components/rounded_input_field.dart';
 import 'package:spg_test/components/rounded_password_field.dart';
-import 'package:spg_test/screens/check/check_userType.dart';
-
 import 'package:spg_test/screens/signup/components/orDivider.dart';
 import 'package:spg_test/screens/signup/signup_screen.dart';
-import 'package:spg_test/screens/student/dashboard_screen.dart';
 import 'package:spg_test/constant.dart';
 import 'package:spg_test/services/auth_provider.dart';
-
+import 'package:spg_test/services/check/check_userType.dart';
 import 'login_screen.dart';
 
 class LoginBody extends StatelessWidget {

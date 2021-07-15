@@ -2,8 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:spg_test/constant.dart';
 import 'package:spg_test/screens/login/login_screen.dart';
-//import 'package:spg_test/screens/signup/signup_screen.dart';
-import 'package:spg_test/screens/student/dashboard_screen.dart';
+import 'package:spg_test/services/check/check_userType.dart';
 
 class Splash extends StatefulWidget {
   static Route route() => MaterialPageRoute(builder: (context) => Splash());
@@ -26,7 +25,7 @@ class SplashScreenState extends State<Splash> {
       } else {
         Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => DashboardStudScreen()),
+            MaterialPageRoute(builder: (context) => CheckTypeScreen()),
             (route) => false);
       }
     });

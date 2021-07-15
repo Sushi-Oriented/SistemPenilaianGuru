@@ -1,17 +1,14 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-//import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:spg_test/components/background.dart';
 import 'package:spg_test/components/rounded_button.dart';
 import 'package:spg_test/components/rounded_input_field.dart';
 import 'package:spg_test/components/rounded_password_field.dart';
-import 'package:spg_test/screens/check/check_userType.dart';
 import 'package:spg_test/screens/login/login_screen.dart';
 import 'package:spg_test/screens/signup/signup_screen.dart';
-import 'package:spg_test/screens/student/dashboard_screen.dart';
-// import 'package:spg_test/screens/welcome/welcome_screen.dart';
 import 'package:spg_test/services/auth_provider.dart';
+import 'package:spg_test/services/check/check_userType.dart';
 
 import '../../constant.dart';
 import 'components/orDivider.dart';

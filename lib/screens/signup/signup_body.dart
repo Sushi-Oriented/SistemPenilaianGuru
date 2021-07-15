@@ -6,11 +6,11 @@ import 'package:spg_test/components/background.dart';
 import 'package:spg_test/components/rounded_button.dart';
 import 'package:spg_test/components/rounded_input_field.dart';
 import 'package:spg_test/components/rounded_password_field.dart';
-import 'package:spg_test/provider/auth_provider.dart';
 import 'package:spg_test/screens/login/login_screen.dart';
 import 'package:spg_test/screens/signup/signup_screen.dart';
 import 'package:spg_test/screens/student/dashboard_screen.dart';
-import 'package:spg_test/screens/welcome/welcome_screen.dart';
+// import 'package:spg_test/screens/welcome/welcome_screen.dart';
+import 'package:spg_test/services/auth_provider.dart';
 
 import '../../constant.dart';
 import 'components/orDivider.dart';

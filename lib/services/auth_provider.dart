@@ -12,11 +12,11 @@ class AuthClass {
       return "Created";
     } on FirebaseAuthException catch (e) {
       //FirebaseAuthException e = (FirebaseAuthException )task.getException();
-      // return Toast.makeText(LoginActivity.this, "Failed Registration: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+      //return Toast.makeText(LoginActivity.this, "Failed Registration: "+e.getMessage(), Toast.LENGTH_SHORT).show();
       //message.hide();
 
       if (e.code == 'weak-password') {
-        return "The password provided is too weak.Like You! 누브!" + e.message;
+        return "The password provided is too weak." + e.message;
       } else if (e.code == 'email-already-in-use') {
         return "User existed. " + e.message;
       }
@@ -24,28 +24,28 @@ class AuthClass {
       print(e);
       return "Error Occured";
     }
+    //return '200';
   }
 
   // Sign in user
   Future<String> signIN({String email, String password}) async {
     try {
       await auth.signInWithEmailAndPassword(email: email, password: password);
-      //print("Logged Insnz");
+      //print("Logged In");
       return "Welcome";
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        return 'User not exist. 진짜?!';
+        return 'User not exist.';
       } else if (e.code == 'wrong-password') {
-        return 'Wrong password! 죽어라';
+        return 'Wrong password!';
       }
     }
+    //return '200';
   }
-
-  //Reset Password - tak kut
 
   //Signout
   void signOut() {
-    print("너는 내게 과분한 사람이야"); //I’m not good enough for you.
+    //print("너는 내게 과분한 사람이야");
     auth.signOut();
   }
 }

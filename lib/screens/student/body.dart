@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 // import 'package:spg_test/components/user_name.dart';
 
 // import 'package:spg_test/constant.dart';
-import 'package:spg_test/provider/auth_provider.dart';
 import 'package:spg_test/screens/login/login_screen.dart';
 
 import 'package:spg_test/screens/student/components/custom_app_bar.dart';
@@ -12,6 +11,7 @@ import 'package:spg_test/screens/student/dashboard_screen.dart';
 // import 'package:spg_test/screens/welcome/welcome_screen.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:spg_test/services/auth_provider.dart';
 
 class DashboardStudBody extends StatelessWidget {
   const DashboardStudBody({state}) : _state = state;

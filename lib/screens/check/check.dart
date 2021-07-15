@@ -6,15 +6,15 @@ import 'package:firebase_core/firebase_core.dart';
 // import 'package:spg_test/screens/signup/signup_screen.dart';
 import 'package:spg_test/screens/splash.dart';
 
-class WelcomeScreen extends StatefulWidget {
+class CheckScreen extends StatefulWidget {
   static Route route() =>
-      MaterialPageRoute(builder: (context) => WelcomeScreen());
+      MaterialPageRoute(builder: (context) => CheckScreen());
 
   @override
-  WelcomeScreenState createState() => WelcomeScreenState();
+  CheckScreenState createState() => CheckScreenState();
 }
 
-class WelcomeScreenState extends State<WelcomeScreen> {
+class CheckScreenState extends State<CheckScreen> {
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
   @override

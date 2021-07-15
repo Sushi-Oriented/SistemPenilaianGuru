@@ -30,7 +30,7 @@ class SplashScreenState extends State<Splash> {
             (route) => false);
       }
     });
-    
+
     return Scaffold(
       body: Center(
         child: Column(
@@ -47,7 +47,6 @@ class SplashScreenState extends State<Splash> {
             Container(
               child: CircularProgressIndicator(
                 color: spgPrimaryColor,
-                
               ),
             )
           ],

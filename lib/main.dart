@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
       ),
-      initialRoute: '/welcomeScreen',
+      initialRoute: '/checkConnection',
       onGenerateRoute: createRoute,
     );
   }

@@ -4,6 +4,7 @@ import 'package:spg_test/components/background.dart';
 import 'package:spg_test/components/rounded_button.dart';
 import 'package:spg_test/components/rounded_input_field.dart';
 import 'package:spg_test/components/rounded_password_field.dart';
+import 'package:spg_test/screens/check/check_userType.dart';
 
 import 'package:spg_test/screens/signup/components/orDivider.dart';
 import 'package:spg_test/screens/signup/signup_screen.dart';
@@ -37,19 +38,16 @@ class LoginBody extends StatelessWidget {
                           fit: BoxFit.contain),
                     ),
                     RoundedInputField(
-                      // Import from rounded_input_field.dart
                       hintText: "Email",
                       controller: _state.email,
                     ),
                     RoundedPasswordField(
-                      // Import from rounded_passsword_field.dart
                       hintText: "Password",
                       obscureText: !_state.showPassword,
                       controller: _state.password,
                       press: () => _state.showPassword = !_state.showPassword,
                     ),
                     RoundedLoginButton(
-                      // Import from rounded_button.dart
                       color: spgPrimaryColor,
                       text: "Log In",
                       press: () => {
@@ -66,8 +64,7 @@ class LoginBody extends StatelessWidget {
                             Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        DashboardStudScreen()),
+                                    builder: (context) => CheckTypeScreen()),
                                 (route) => false);
                           } else {
                             _state.isLoggedIn = false;
@@ -75,24 +72,12 @@ class LoginBody extends StatelessWidget {
                                 .showSnackBar(SnackBar(content: Text(value)));
                           }
                         })
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //       builder: (context) => DashboardStudScreen()),
-                        // )
                       },
                     ),
                     SizedBox(height: 10.0),
                     OrDivider(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      // children: <Widget>[
-                      //   SignInButton(
-                      //     Buttons.Google,
-                      //     text: "Sign in with Google",
-                      //     onPressed: () {},
-                      //   )
-                      // ],
                       children: <Widget>[
                         GestureDetector(
                           onTap: () => {

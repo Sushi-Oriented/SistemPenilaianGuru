@@ -6,6 +6,7 @@ import 'package:spg_test/components/background.dart';
 import 'package:spg_test/components/rounded_button.dart';
 import 'package:spg_test/components/rounded_input_field.dart';
 import 'package:spg_test/components/rounded_password_field.dart';
+import 'package:spg_test/screens/check/check_userType.dart';
 import 'package:spg_test/screens/login/login_screen.dart';
 import 'package:spg_test/screens/signup/signup_screen.dart';
 import 'package:spg_test/screens/student/dashboard_screen.dart';
@@ -67,7 +68,7 @@ class SignUpBody extends StatelessWidget {
                           Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => DashboardStudScreen()),
+                                  builder: (context) => CheckTypeScreen()),
                               (route) => false);
                         } else {
                           _state.isRegister = false;

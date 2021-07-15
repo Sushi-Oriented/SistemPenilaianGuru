@@ -35,6 +35,10 @@ class SignUpScreenState extends State<SignUpScreen> {
   get password => _password;
   set password(value) => setState(() => _password = value);
 
+  TextEditingController _confirm = TextEditingController();
+  get confirm => _confirm;
+  set confirm(value) => setState(() => _confirm = value);
+
   bool _isRegister = false;
   get isRegister => _isRegister;
   set isRegister(value) => setState(() => _isRegister = value);

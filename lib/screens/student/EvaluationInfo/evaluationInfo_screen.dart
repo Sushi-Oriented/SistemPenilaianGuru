@@ -5,7 +5,7 @@ import 'package:spg_test/screens/student/EvaluationInfo/body.dart';
 class EvaluationInfoScreen extends StatelessWidget {
   // const EvaluationInfoScreen({ Key? key }) : super(key: key);
 
-    static Route route() =>
+  static Route route() =>
       MaterialPageRoute(builder: (context) => EvaluationInfoScreen());
 
   @override
@@ -14,7 +14,11 @@ class EvaluationInfoScreen extends StatelessWidget {
       onWillPop: () => Future.value(false),
       child: SafeArea(
         child: Scaffold(
-          body: EvaluationInfoBody(text: '',textt: '',texttt: '',),
+          body: EvaluationInfoBody(
+            text: '',
+            textt: '',
+            texttt: '',
+          ),
         ),
       ),
     );

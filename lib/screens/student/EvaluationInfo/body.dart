@@ -1,21 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:spg_test/screens/student/DashBoard/body.dart';
+import 'package:spg_test/screens/student/Evaluate/evaluateScreen.dart';
 
 class EvaluationInfoBody extends StatefulWidget {
+  String text, textt, texttt;
 
-  String text,textt,texttt;
-
-  EvaluationInfoBody({Key key, @required this.text,@required this.textt,@required this.texttt}) : super(key: key);
-  
-
+  EvaluationInfoBody(
+      {Key key,
+      @required this.text,
+      @required this.textt,
+      @required this.texttt})
+      : super(key: key);
 
   @override
   _EvaluationInfoBodyState createState() => _EvaluationInfoBodyState();
 }
 
 class _EvaluationInfoBodyState extends State<EvaluationInfoBody> {
-
   @override
   Widget build(BuildContext context) {
     // return Scaffold(
@@ -26,11 +28,10 @@ class _EvaluationInfoBodyState extends State<EvaluationInfoBody> {
     //       style: TextStyle(fontSize: 24),
     //     ),
     //   ),
-      
+
     // );
 
-
-        return Container(
+    return Container(
       color: Colors.white,
       child: Scaffold(
         backgroundColor: Color.fromRGBO(196, 196, 196, 100),
@@ -44,10 +45,6 @@ class _EvaluationInfoBodyState extends State<EvaluationInfoBody> {
                 ),
               ],
             ),
-
-            
-
-
 
             Positioned(
               top: (MediaQuery.of(context).size.width / 1.2) - 100.0,
@@ -67,17 +64,15 @@ class _EvaluationInfoBodyState extends State<EvaluationInfoBody> {
                         blurRadius: 10.0),
                   ],
                 ),
-
-
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8, right: 8),
                   child: SingleChildScrollView(
                     child: Container(
                       // constraints: BoxConstraints(
-                          // minHeight: infoHeight,
-                          // maxHeight: tempHeight > infoHeight
-                          //     ? tempHeight
-                          //     : infoHeight),
+                      // minHeight: infoHeight,
+                      // maxHeight: tempHeight > infoHeight
+                      //     ? tempHeight
+                      //     : infoHeight),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         // crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,7 +92,6 @@ class _EvaluationInfoBodyState extends State<EvaluationInfoBody> {
                             ),
                           ),
 
-
                           Padding(
                             padding: const EdgeInsets.only(
                                 top: 50.0, left: 0, right: 0),
@@ -113,7 +107,6 @@ class _EvaluationInfoBodyState extends State<EvaluationInfoBody> {
                             ),
                           ),
 
-
                           Padding(
                             padding: const EdgeInsets.only(
                                 top: 10.0, left: 0, right: 0),
@@ -128,10 +121,6 @@ class _EvaluationInfoBodyState extends State<EvaluationInfoBody> {
                               ),
                             ),
                           ),
-
-
-
-
 
                           // Padding(
                           //   padding: const EdgeInsets.only(
@@ -221,111 +210,115 @@ class _EvaluationInfoBodyState extends State<EvaluationInfoBody> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
                                   Expanded(
-
                                     child: InkWell(
-                                      onTap: (){
-                                        Navigator.pop(context, MaterialPageRoute(
-                              builder: (context) => DashboardStudBody(),
-                            ),
-                            );
+                                      onTap: () {
+                                        Navigator.pop(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                DashboardStudBody(),
+                                          ),
+                                        );
                                       },
-                                    // width: 48,
-                                    child: Container(
-                                      height: 38,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: const BorderRadius.all(
-                                          Radius.circular(16.0),
+                                      // width: 48,
+                                      child: Container(
+                                        height: 38,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: const BorderRadius.all(
+                                            Radius.circular(16.0),
+                                          ),
+                                          boxShadow: <BoxShadow>[
+                                            BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.5),
+                                                offset: const Offset(1.1, 1.1),
+                                                blurRadius: 10.0),
+                                          ],
                                         ),
-                                        boxShadow: <BoxShadow>[
-                                          BoxShadow(
-                                              color: Colors.grey
-                                                  .withOpacity(0.5),
-                                              offset: const Offset(1.1, 1.1),
-                                              blurRadius: 10.0),
-                                        ],
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          'Kembali',
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 15,
-                                            letterSpacing: 0.0,
-                                            color: Colors.black,
+                                        child: Center(
+                                          child: Text(
+                                            'Kembali',
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 15,
+                                              letterSpacing: 0.0,
+                                              color: Colors.black,
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
                                   ),
                                   const SizedBox(
                                     width: 16,
                                   ),
                                   Expanded(
-
                                     child: InkWell(
-                                      onTap: (){},
-                                    child: Container(
-                                      height: 38,
-                                      decoration: BoxDecoration(
-                                        color: Colors.black,
-                                        borderRadius: const BorderRadius.all(
-                                          Radius.circular(16.0),
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  EvaluateBody(
+                                                      teacher: widget.text)),
+                                        );
+                                      },
+                                      child: Container(
+                                        height: 38,
+                                        decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius: const BorderRadius.all(
+                                            Radius.circular(16.0),
+                                          ),
+                                          boxShadow: <BoxShadow>[
+                                            BoxShadow(
+                                                color: Colors.blueAccent
+                                                    .withOpacity(0.5),
+                                                offset: const Offset(1.1, 1.1),
+                                                blurRadius: 10.0),
+                                          ],
                                         ),
-                                        boxShadow: <BoxShadow>[
-                                          BoxShadow(
-                                              color: Colors.blueAccent
-                                                  .withOpacity(0.5),
-                                              offset: const Offset(1.1, 1.1),
-                                              blurRadius: 10.0),
-                                        ],
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          'Mula Menilai',
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 15,
-                                            letterSpacing: 0.0,
-                                            color: Colors.white,
+                                        child: Center(
+                                          child: Text(
+                                            'Mula Menilai',
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 15,
+                                              letterSpacing: 0.0,
+                                              color: Colors.white,
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
                                   ),
                                 ],
                               ),
                             ),
                           ),
 
-
                           SizedBox(
                             height: MediaQuery.of(context).padding.bottom,
                           )
                         ],
                       ),
-                    // ),
+                      // ),
+                    ),
                   ),
                 ),
               ),
             ),
-),
 
-            
-            
             Positioned(
-              top: (MediaQuery.of(context).size.width / 1.2) - 24.0 - 150,
-              right: 0,
-              left: 0,
+                top: (MediaQuery.of(context).size.width / 1.2) - 24.0 - 150,
+                right: 0,
+                left: 0,
 
+                // child: Center(
 
-              
-              // child: Center(
-                
                 child: CircleAvatar(
                     radius: 70.0,
                     backgroundColor: Colors.white,
@@ -333,25 +326,15 @@ class _EvaluationInfoBodyState extends State<EvaluationInfoBody> {
                       child: Image.asset('assets/images/manIcon.jpg'),
                       borderRadius: BorderRadius.circular(80.0),
                     ))
-                    
-                    
-                    // )
 
-              
+                // )
 
-              
-            
+                // ),
 
-              // ),
-
-        
-              
-
-
-              // child: ScaleTransition(
-              //   alignment: Alignment.center,
-              //   scale: CurvedAnimation(
-              //       parent: animationController, curve: Curves.fastOutSlowIn),
+                // child: ScaleTransition(
+                //   alignment: Alignment.center,
+                //   scale: CurvedAnimation(
+                //       parent: animationController, curve: Curves.fastOutSlowIn),
                 // child: Card(
                 //   color: Colors.blueAccent,
                 //   shape: RoundedRectangleBorder(
@@ -369,8 +352,7 @@ class _EvaluationInfoBodyState extends State<EvaluationInfoBody> {
                 //     ),
                 //   ),
                 // ),
-              ),
-
+                ),
 
             // ),
             // Padding(
@@ -398,7 +380,5 @@ class _EvaluationInfoBodyState extends State<EvaluationInfoBody> {
         ),
       ),
     );
-
-
   }
 }

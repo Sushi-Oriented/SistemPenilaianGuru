@@ -15,69 +15,90 @@ class DashboardPrincipalBody extends StatefulWidget {
 }
 
 class _DashboardPrincipalBodyState extends State<DashboardPrincipalBody> {
+  var all = FirebaseFirestore.instance.collection('subject').snapshots();
 
-  
+  var allpercent = FirebaseFirestore.instance
+      .collection('users')
+      .doc('W4AnamqMKRUbVZXVR8vsFC4DBhy1')
+      .collection('evalution')
+      .snapshots();
 
-  var all = FirebaseFirestore.instance
-  .collection('subject')
-  .snapshots();
+  void alllist() {
+    setState(() {
+      all = FirebaseFirestore.instance.collection('subject').snapshots();
 
-void alllist(){
+      allpercent = FirebaseFirestore.instance
+          .collection('users')
+          .doc('W4AnamqMKRUbVZXVR8vsFC4DBhy1')
+          .collection('evalution')
+          .snapshots();
+    });
+  }
+
+  void bm() {
     setState(() {
       all = FirebaseFirestore.instance
-  .collection('subject')
-  .snapshots();
+          .collection('subject')
+          .where('abbr', isEqualTo: 'BM')
+          .snapshots();
+      print("object");
+
+      allpercent = FirebaseFirestore.instance
+          .collection('users')
+          .doc('W4AnamqMKRUbVZXVR8vsFC4DBhy1')
+          .collection('evalution')
+          .where('teacher', isEqualTo: 'Hasan Mubarak')
+          .snapshots();
     });
   }
 
-  void bm(){
+  void bi() {
     setState(() {
       all = FirebaseFirestore.instance
-  .collection('subject')
-  .where('abbr', isEqualTo: 'BM')
-  .snapshots();
-  print("object");
+          .collection('subject')
+          .where('abbr', isEqualTo: 'ENG')
+          .snapshots();
+
+      allpercent = FirebaseFirestore.instance
+          .collection('users')
+          .doc('W4AnamqMKRUbVZXVR8vsFC4DBhy1')
+          .collection('evalution')
+          .where('teacher', isEqualTo: 'Fei Zhi')
+          .snapshots();
     });
   }
 
-  void bi(){
-    setState(() {
-        all = FirebaseFirestore.instance
-  .collection('subject')
-  .where('abbr', isEqualTo: 'ENG')
-  .snapshots();
-    });
-  }
-
-    void sn(){
+  void sn() {
     setState(() {
       all = FirebaseFirestore.instance
-  .collection('subject')
-  .where('abbr', isEqualTo: 'SN')
-  .snapshots();
+          .collection('subject')
+          .where('abbr', isEqualTo: 'SC')
+          .snapshots();
+
+      allpercent = FirebaseFirestore.instance
+          .collection('users')
+          .doc('W4AnamqMKRUbVZXVR8vsFC4DBhy1')
+          .collection('evalution')
+          .where('teacher', isEqualTo: 'Hamidah Tan')
+          .snapshots();
     });
   }
 
-    void mt(){
+  void mt() {
     setState(() {
       all = FirebaseFirestore.instance
-  .collection('subject')
-  .where('abbr', isEqualTo: 'MT')
-  .snapshots();
+          .collection('subject')
+          .where('abbr', isEqualTo: 'MT')
+          .snapshots();
+
+      allpercent = FirebaseFirestore.instance
+          .collection('users')
+          .doc('W4AnamqMKRUbVZXVR8vsFC4DBhy1')
+          .collection('evalution')
+          .where('teacher', isEqualTo: 'Arif Masyhur')
+          .snapshots();
     });
   }
-
-
-  
-
-
-
-  
-
-  
-
-  
-          
 
   @override
   Widget build(BuildContext context) {
@@ -93,8 +114,6 @@ void alllist(){
               (route) => false)
         },
       ),
-
-      
       body: StreamBuilder(
         stream: all,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -123,243 +142,263 @@ void alllist(){
                     ],
                   ),
                 ),
-
                 Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 10.0, left: 10, bottom: 20, right: 10),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  Expanded(
+                  padding: const EdgeInsets.only(
+                      top: 10.0, left: 10, bottom: 20, right: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        child: InkWell(
+                          onTap: alllist,
+                          // width: 48,
 
-                                    child: InkWell(
-                                      onTap: alllist,
-                                    // width: 48,
-                                    
-                                    child: Container(
-                                      height: 38,
-                                      decoration: BoxDecoration(
-                                        color: Colors.black,
-                                        borderRadius: const BorderRadius.all(
-                                          Radius.circular(16.0),
-                                        ),
-                                        boxShadow: <BoxShadow>[
-                                          BoxShadow(
-                                              color: Colors.grey
-                                                  .withOpacity(0.5),
-                                              offset: const Offset(1.1, 1.1),
-                                              blurRadius: 10.0),
-                                        ],
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          'All',
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 15,
-                                            letterSpacing: 0.0,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  ),
-                                  const SizedBox(
-                                    width: 16,
-                                  ),
-                                  Expanded(
-
-                                    child: InkWell(
-                                      onTap: bm,
-                                    child: Container(
-                                      height: 38,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: const BorderRadius.all(
-                                          Radius.circular(16.0),
-                                        ),
-                                        boxShadow: <BoxShadow>[
-                                          BoxShadow(
-                                              color: Colors.grey
-                                                  .withOpacity(0.5),
-                                              offset: const Offset(1.1, 1.1),
-                                              blurRadius: 10.0),
-                                        ],
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          'BM',
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 15,
-                                            letterSpacing: 0.0,
-                                            color: Colors.black,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  ),
-                                  const SizedBox(
-                                    width: 16,
-                                  ),
-                                  Expanded(
-
-                                    child: InkWell(
-                                      onTap: bi,
-                                    child: Container(
-                                      height: 38,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: const BorderRadius.all(
-                                          Radius.circular(16.0),
-                                        ),
-                                        boxShadow: <BoxShadow>[
-                                          BoxShadow(
-                                              color: Colors.grey
-                                                  .withOpacity(0.5),
-                                              offset: const Offset(1.1, 1.1),
-                                              blurRadius: 10.0),
-                                        ],
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          'BI',
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 15,
-                                            letterSpacing: 0.0,
-                                            color: Colors.black,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  ),
-                                  const SizedBox(
-                                    width: 16,
-                                  ),
-                                  Expanded(
-
-                                    child: InkWell(
-                                      onTap: sn,
-                                    child: Container(
-                                      height: 38,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: const BorderRadius.all(
-                                          Radius.circular(16.0),
-                                        ),
-                                        boxShadow: <BoxShadow>[
-                                          BoxShadow(
-                                              color: Colors.grey
-                                                  .withOpacity(0.5),
-                                              offset: const Offset(1.1, 1.1),
-                                              blurRadius: 10.0),
-                                        ],
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          'SN',
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 15,
-                                            letterSpacing: 0.0,
-                                            color: Colors.black,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  ),
-                                  const SizedBox(
-                                    width: 16,
-                                  ),
-                                  Expanded(
-
-                                    child: InkWell(
-                                      onTap: mt,
-                                    child: Container(
-                                      height: 38,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: const BorderRadius.all(
-                                          Radius.circular(16.0),
-                                        ),
-                                        boxShadow: <BoxShadow>[
-                                          BoxShadow(
-                                              color: Colors.grey
-                                                  .withOpacity(0.5),
-                                              offset: const Offset(1.1, 1.1),
-                                              blurRadius: 10.0),
-                                        ],
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          'MT',
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 15,
-                                            letterSpacing: 0.0,
-                                            color: Colors.black,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  ),
-                                ],
+                          child: Container(
+                            height: 38,
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(16.0),
+                              ),
+                              boxShadow: <BoxShadow>[
+                                BoxShadow(
+                                    color: Colors.grey.withOpacity(0.5),
+                                    offset: const Offset(1.1, 1.1),
+                                    blurRadius: 10.0),
+                              ],
+                            ),
+                            child: Center(
+                              child: Text(
+                                'All',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                  letterSpacing: 0.0,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
-
-
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Expanded(
+                        child: InkWell(
+                          onTap: bm,
+                          child: Container(
+                            height: 38,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(16.0),
+                              ),
+                              boxShadow: <BoxShadow>[
+                                BoxShadow(
+                                    color: Colors.grey.withOpacity(0.5),
+                                    offset: const Offset(1.1, 1.1),
+                                    blurRadius: 10.0),
+                              ],
+                            ),
+                            child: Center(
+                              child: Text(
+                                'BM',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                  letterSpacing: 0.0,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Expanded(
+                        child: InkWell(
+                          onTap: bi,
+                          child: Container(
+                            height: 38,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(16.0),
+                              ),
+                              boxShadow: <BoxShadow>[
+                                BoxShadow(
+                                    color: Colors.grey.withOpacity(0.5),
+                                    offset: const Offset(1.1, 1.1),
+                                    blurRadius: 10.0),
+                              ],
+                            ),
+                            child: Center(
+                              child: Text(
+                                'BI',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                  letterSpacing: 0.0,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Expanded(
+                        child: InkWell(
+                          onTap: sn,
+                          child: Container(
+                            height: 38,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(16.0),
+                              ),
+                              boxShadow: <BoxShadow>[
+                                BoxShadow(
+                                    color: Colors.grey.withOpacity(0.5),
+                                    offset: const Offset(1.1, 1.1),
+                                    blurRadius: 10.0),
+                              ],
+                            ),
+                            child: Center(
+                              child: Text(
+                                'SN',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                  letterSpacing: 0.0,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Expanded(
+                        child: InkWell(
+                          onTap: mt,
+                          child: Container(
+                            height: 38,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(16.0),
+                              ),
+                              boxShadow: <BoxShadow>[
+                                BoxShadow(
+                                    color: Colors.grey.withOpacity(0.5),
+                                    offset: const Offset(1.1, 1.1),
+                                    blurRadius: 10.0),
+                              ],
+                            ),
+                            child: Center(
+                              child: Text(
+                                'MT',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                  letterSpacing: 0.0,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 Expanded(
                   child: snapshot.hasData
-            ?ListView.separated(
-              itemCount: snapshot.data.docs.length,
-              separatorBuilder: (context, index) => Divider(
-                color: Colors.grey,
-              ),
-              itemBuilder: (context, index) => ListTile(
-                          leading: CircleAvatar(
-                            backgroundColor: Color.fromRGBO(196, 196, 196, 100),
-                            child: Text((index + 1).toString(),
-                                style: TextStyle(color: Colors.black,
+                      ? ListView.separated(
+                          itemCount: snapshot.data.docs.length,
+                          separatorBuilder: (context, index) => Divider(
+                            color: Colors.grey,
+                          ),
+                          itemBuilder: (context, index) => ListTile(
+                            leading: CircleAvatar(
+                              backgroundColor:
+                                  Color.fromRGBO(196, 196, 196, 100),
+                              child: Text((index + 1).toString(),
+                                  style: TextStyle(
+                                    color: Colors.black,
                                     fontSize: 20.0,
                                     fontWeight: FontWeight.bold,
-                                    )),
-                          ),
-                          title: Text(snapshot.data.docs[index]['teacher'],
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
-                              )),
-                          subtitle: Text(snapshot.data.docs[index]['name'] + '\n'+ snapshot.data.docs[index]['kelas'],
-                              style: TextStyle(
-                                    fontSize: 13.0,
-                                    // fontWeight: FontWeight.bold,
                                   )),
-                          
-                          onTap: () {
-
-                            //  Navigator.push(context, MaterialPageRoute(
-                            //   builder: (context) => EvaluationInfoBody(text: document['teacher'],textt: document['name'],texttt: document['kelas'],),
-                            // ),
-                            // );
-                          },
-                        ),
-              
-            )
-            : Center(child: Text('asdsd')),
-
-
+                            ),
+                            title: Text(snapshot.data.docs[index]['teacher'],
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            subtitle: Text(
+                                snapshot.data.docs[index]['name'] +
+                                    '\n' +
+                                    snapshot.data.docs[index]['kelas'],
+                                style: TextStyle(
+                                  fontSize: 13.0,
+                                  // fontWeight: FontWeight.bold,
+                                )),
+                            trailing: StreamBuilder(
+                                stream: allpercent,
+                                builder: (context, val) {
+                                  if (!val.hasData) {
+                                    return Text('x');
+                                  } else {
+                                    int current = index + 1;
+                                    print(
+                                        val.data.docs[index]['q' + '$current']);
+                                    // print(snapshot.data.docs[index]['teacher']);
+                                    return CircleAvatar(
+                                      child: Text(
+                                        val.data.docs[index]['percentage']
+                                            .round()
+                                            .toString(),
+                                        // widget._data[index].percent.round().toString(),
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      backgroundColor: val.data.docs[index]
+                                                  ['percentage'] <
+                                              40
+                                          ? Colors.red
+                                          : val.data.docs[index]['percentage'] <
+                                                  60
+                                              ? Colors.yellow
+                                              : val.data.docs[index]
+                                                          ['percentage'] <
+                                                      80
+                                                  ? Colors.lightGreen
+                                                  : Colors.green,
+                                    );
+                                  }
+                                }),
+                            onTap: () {
+                              //  Navigator.push(context, MaterialPageRoute(
+                              //   builder: (context) => EvaluationInfoBody(text: document['teacher'],textt: document['name'],texttt: document['kelas'],),
+                              // ),
+                              // );
+                            },
+                          ),
+                        )
+                      : Center(child: Text('asdsd')),
                 )
               ],
             ),

@@ -15,6 +15,10 @@ class EvaluateBody extends StatefulWidget {
 class _EvaluateBodyState extends State<EvaluateBody> {
   String _userID = FirebaseAuth.instance.currentUser.uid;
   get userID => _userID;
+  int total = 0;
+  int total2 = 0;
+  double percentage = 0;
+
 
   @override
   Widget build(BuildContext context) {
@@ -60,8 +64,16 @@ class _EvaluateBodyState extends State<EvaluateBody> {
                       return Text('x');
                     } else {
                       int current = index + 1;
+
+                      total = total + val.data['q' + '$current'];
+                      print('total per ques :' + total.toString());
+                      total2 = total ;
+
+                        
+
                       return DropdownButton(
                         // value: snapshot.data.docs[index]['set'],
+                        
                         value: val.data['q' + '$current'],
                         items: scales
                             .map(
@@ -79,38 +91,75 @@ class _EvaluateBodyState extends State<EvaluateBody> {
                               .doc(subject);
                           if ((await sql.get()).exists) {
                             if (index == 0) {
+                              print(val.data['q' + '$current']);
+                              print(newValue);
+                              total2 = total2 - val.data['q' + '$current'] + newValue;
+                              percentage = (total2 / 32)*100;
+                              total = 0 ;
                               await sql.update({
                                 "q1": newValue,
+                                "percentage" : percentage,
                               });
+                              
+                              
                             } else if (index == 1) {
+                              total2 = total2 - val.data['q' + '$current'] + newValue;
+                              percentage = (total2 / 32)*100;
+                              total = 0 ;
                               await sql.update({
                                 "q2": newValue,
+                                "percentage" : percentage,
                               });
                             } else if (index == 2) {
+                              total2 = total2 - val.data['q' + '$current'] + newValue;
+                              percentage = (total2 / 32)*100;
+                              total = 0 ;
                               await sql.update({
                                 "q3": newValue,
+                                "percentage" : percentage,
                               });
                             } else if (index == 3) {
+                              total2 = total2 - val.data['q' + '$current'] + newValue;
+                              percentage = (total2 / 32)*100;
+                              total = 0 ;
                               await sql.update({
                                 "q4": newValue,
+                                "percentage" : percentage,
                               });
                             } else if (index == 4) {
+                              total2 = total2 - val.data['q' + '$current'] + newValue;
+                              percentage = (total2 / 32)*100;
+                              total = 0 ;
                               await sql.update({
                                 "q5": newValue,
+                                "percentage" : percentage,
                               });
                             } else if (index == 5) {
+                              total2 = total2 - val.data['q' + '$current'] + newValue;
+                              percentage = (total2 / 32)*100;
+                              total = 0 ;
                               await sql.update({
                                 "q6": newValue,
+                                "percentage" : percentage,
                               });
                             } else if (index == 6) {
+                              total2 = total2 - val.data['q' + '$current'] + newValue;
+                              percentage = (total2 / 32)*100;
+                              total = 0 ;
                               await sql.update({
                                 "q7": newValue,
+                                "percentage" : percentage,
                               });
                             } else if (index == 7) {
+                              total2 = total2 - val.data['q' + '$current'] + newValue;
+                              percentage = (total2 / 32)*100;
+                              total = 0 ;
                               await sql.update({
                                 "q8": newValue,
+                                "percentage" : percentage,
                               });
                             }
+                           
 
                             print('Exist');
                           } else {
